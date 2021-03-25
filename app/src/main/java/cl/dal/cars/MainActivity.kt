@@ -2,6 +2,7 @@ package cl.dal.cars
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import timber.log.Timber
 
 /**
  * [X] control de versiones
@@ -12,14 +13,15 @@ import android.os.Bundle
  *      [X] POJOs (listado y detalle)
  *      [X] interfaz de operaciones
  *      [X] cliente de retrofit
- * [ ] Repositorio
- * [ ] ViewModel
- * [ ] activar viewBinding
+ * [X] Repositorio
+ * [X] ViewModel
+ * [X] activar viewBinding
+ * [X] modificar el activity_main.xml
  * [ ] Fragmento de listado
- *      [ ] adapter + viewholder + recyclerview
- *      [ ] layout del fragmento
+ *      [X] layout del fragmento
  *      [ ] layout del item
- *      [ ] modificar para usar viewBinding
+ *      [ ] adapter + viewholder + recyclerview
+ *      [X] modificar para usar viewBinding
  *      [ ] onClick para elemento del listado
  * [ ] Fragmento de detalle
  * [ ] Manejo de persistencia con ROOM
@@ -30,5 +32,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initLog()
+    }
+
+    private fun initLog() {
+        Timber.plant(Timber.DebugTree())
     }
 }
