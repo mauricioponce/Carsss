@@ -19,13 +19,15 @@ import timber.log.Timber
  * [X] modificar el activity_main.xml
  * [ ] Fragmento de listado
  *      [X] layout del fragmento
- *      [ ] layout del item
- *      [ ] adapter + viewholder + recyclerview
+ *      [X] layout del item
+ *      [X] adapter + viewholder + recyclerview
  *      [X] modificar para usar viewBinding
  *      [ ] onClick para elemento del listado
  * [ ] Fragmento de detalle
  * [ ] Manejo de persistencia con ROOM
  * [ ] test unitario
+ * [ ] refactorización y limpieza
+ * [ ] loading
  */
 
 class MainActivity : AppCompatActivity() {

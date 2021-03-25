@@ -2,11 +2,18 @@ package cl.dal.cars.view.listing
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.dal.cars.databinding.CarItemListBinding
 import cl.dal.cars.model.pojos.Car
 
+
 class CarAdapter: RecyclerView.Adapter<CarVH>() {
+
+    private val selected = MutableLiveData<Car>()
+
+    fun selected() : LiveData<Car> = selected
 
     private val carList = mutableListOf<Car>()
 
@@ -20,6 +27,9 @@ class CarAdapter: RecyclerView.Adapter<CarVH>() {
         val car = carList[position]
 
         holder.bind(car)
+        holder.itemView.setOnClickListener {
+            selected.value = car
+        }
     }
 
     override fun getItemCount() = carList.size

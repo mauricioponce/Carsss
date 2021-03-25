@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import cl.dal.cars.MyViewModel
+import cl.dal.cars.R
 import cl.dal.cars.databinding.FragmentListingBinding
+import cl.dal.cars.view.detail.DetailFragment
 import timber.log.Timber
 
 class ListingFragment: Fragment() {
@@ -46,6 +48,11 @@ class ListingFragment: Fragment() {
             it?.let {
                 adapter.update(it)
             }
+        }
+
+        adapter.selected().observe(viewLifecycleOwner) {
+            Timber.d("el auto seleccionado es ${it.id}")
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container, DetailFragment.newInstance(it.id.toString()))?.commit()
         }
     }
 }
