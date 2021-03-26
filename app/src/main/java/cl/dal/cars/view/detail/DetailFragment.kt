@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import cl.dal.cars.R
 import cl.dal.cars.databinding.FragmentDetailBinding
 import cl.dal.cars.model.pojos.CarDetail
 import cl.dal.cars.vm.DetailViewModel
@@ -37,7 +36,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailBinding.inflate(inflater)
 
         Timber.d("información para el auto $param1")

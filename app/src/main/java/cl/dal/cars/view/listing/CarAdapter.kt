@@ -41,7 +41,7 @@ class CarAdapter: RecyclerView.Adapter<CarVH>() {
     }
 }
 
-class CarVH(val binding: CarItemListBinding) : RecyclerView.ViewHolder(binding.root){
+class CarVH(private val binding: CarItemListBinding) : RecyclerView.ViewHolder(binding.root){
     fun bind(car: Car) {
         binding.tvCarName.text = car.name
         binding.tvCarAcce.text = car.acceleration

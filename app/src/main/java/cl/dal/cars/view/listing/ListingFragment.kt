@@ -26,7 +26,7 @@ class ListingFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentListingBinding.inflate(inflater)
 
         initViews()
