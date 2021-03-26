@@ -34,8 +34,8 @@ import timber.log.Timber
  *      [X] clase que extiende de application para inicializar la base de datos
  *      [X] agregar al manifest application
  *      [X] actualizar repo para leer de base de datos
- * [ ] refactorización y limpieza
- * [ ] test unitario
+ * [X] refactorización y limpieza (analyze -> inspect code)
+ * [X] test unitario
  * [ ] loading
  */
 
