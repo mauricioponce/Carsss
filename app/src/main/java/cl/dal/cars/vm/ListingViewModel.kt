@@ -1,11 +1,11 @@
-package cl.dal.cars
+package cl.dal.cars.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.dal.cars.model.pojos.Repository
 import kotlinx.coroutines.launch
 
-class MyViewModel: ViewModel() {
+class ListingViewModel: ViewModel() {
 
     private val repository = Repository()
 

@@ -17,13 +17,16 @@ import timber.log.Timber
  * [X] ViewModel
  * [X] activar viewBinding
  * [X] modificar el activity_main.xml
- * [ ] Fragmento de listado
+ * [X] Fragmento de listado
  *      [X] layout del fragmento
  *      [X] layout del item
  *      [X] adapter + viewholder + recyclerview
  *      [X] modificar para usar viewBinding
- *      [ ] onClick para elemento del listado
- * [ ] Fragmento de detalle
+ *      [X] onClick para elemento del listado
+ * [X] Fragmento de detalle
+ *      [X] crear el layout del detalle
+ *      [X] crear el fragmento que recibe 1 parámetro (id del auto)
+ *      [X] crear el viewmodel para consumir los datos del detalle
  * [ ] Manejo de persistencia con ROOM
  * [ ] test unitario
  * [ ] refactorización y limpieza

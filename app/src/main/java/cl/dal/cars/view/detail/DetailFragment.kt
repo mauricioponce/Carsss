@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import cl.dal.cars.R
 import cl.dal.cars.databinding.FragmentDetailBinding
+import cl.dal.cars.model.pojos.CarDetail
+import cl.dal.cars.vm.DetailViewModel
 import timber.log.Timber
 
 private const val ARG_PARAM1 = "param1"
@@ -20,6 +23,10 @@ class DetailFragment : Fragment() {
 
     private var param1: String? = null
 
+    private val detailViewModel by viewModels<DetailViewModel>()
+
+    private lateinit var binding: FragmentDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,11 +38,26 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDetailBinding.inflate(inflater)
+        binding = FragmentDetailBinding.inflate(inflater)
 
         Timber.d("información para el auto $param1")
 
+        detailViewModel.getDetail(param1!!)
+
+        detailViewModel.carDetail.observe(viewLifecycleOwner) {
+            showDetail(it)
+        }
+
         return binding.root
+    }
+
+    private fun showDetail(detail: CarDetail?) {
+        detail?.let {
+            Timber.d("show detail for $detail")
+            binding.tvDetailCarName.text = detail.name
+            binding.tvDetailAcce.text = detail.acceleration
+            binding.tvFeatures.text = detail.features
+        }
     }
 
     companion object {
