@@ -1,5 +1,7 @@
-package cl.dal.cars.model.pojos
+package cl.dal.cars.model.remote
 
+import cl.dal.cars.model.pojos.Car
+import cl.dal.cars.model.pojos.CarDetail
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

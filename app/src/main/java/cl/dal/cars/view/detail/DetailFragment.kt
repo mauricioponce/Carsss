@@ -42,10 +42,8 @@ class DetailFragment : Fragment() {
 
         Timber.d("información para el auto $param1")
 
-        detailViewModel.getDetail(param1!!)
-
-        detailViewModel.carDetail.observe(viewLifecycleOwner) {
-            showDetail(it)
+        detailViewModel.getDetail(param1!!).observe(viewLifecycleOwner) { detail ->
+            showDetail(detail)
         }
 
         return binding.root

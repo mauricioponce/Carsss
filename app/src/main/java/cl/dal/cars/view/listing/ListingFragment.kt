@@ -45,9 +45,9 @@ class ListingFragment: Fragment() {
     private fun registerObservers() {
         viewModel.getCars()
 
-        viewModel.carList.observe(viewLifecycleOwner) {
-            it?.let {
-                adapter.update(it)
+        viewModel.carList.observe(viewLifecycleOwner) { car ->
+            car?.let {
+                adapter.update(car)
             }
         }
 

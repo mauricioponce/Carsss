@@ -28,8 +28,14 @@ import timber.log.Timber
  *      [X] crear el fragmento que recibe 1 parámetro (id del auto)
  *      [X] crear el viewmodel para consumir los datos del detalle
  * [ ] Manejo de persistencia con ROOM
- * [ ] test unitario
+ *      [X] dependencias
+ *      [X] DAO
+ *      [X] cliente de base de datos
+ *      [X] clase que extiende de application para inicializar la base de datos
+ *      [X] agregar al manifest application
+ *      [X] actualizar repo para leer de base de datos
  * [ ] refactorización y limpieza
+ * [ ] test unitario
  * [ ] loading
  */
 

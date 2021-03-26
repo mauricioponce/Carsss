@@ -2,7 +2,8 @@ package cl.dal.cars.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cl.dal.cars.model.pojos.Repository
+import cl.dal.cars.model.Repository
+
 import kotlinx.coroutines.launch
 
 class ListingViewModel: ViewModel() {

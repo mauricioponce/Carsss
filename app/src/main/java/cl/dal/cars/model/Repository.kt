@@ -1,30 +1,32 @@
-package cl.dal.cars.model.pojos
+package cl.dal.cars.model
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import cl.dal.cars.model.local.CarApplication
+import cl.dal.cars.model.pojos.Car
+import cl.dal.cars.model.pojos.CarDetail
+import cl.dal.cars.model.remote.RetrofitClient
 import timber.log.Timber
 
 class Repository {
 
     private val carAPI = RetrofitClient.instance()
 
-    private val carList = MutableLiveData<List<Car>>()
-    fun carList(): LiveData<List<Car>> = carList
+    private val carDao = CarApplication.carDatabase!!.carDao()
 
-    private val carDetail = MutableLiveData<CarDetail>()
-    fun carDetail(): LiveData<CarDetail> = carDetail
+    fun carList(): LiveData<List<Car>> = carDao.getCars()
+
+    fun carDetail(id: Int): LiveData<CarDetail> = carDao.getCarById(id)
 
     suspend fun getCars(){
         val response = carAPI.getCars()
         when(response.isSuccessful) {
             true -> {
                 if(response.body() != null) {
-                    carList.value = response.body()
+                    carDao.insert(response.body()!!)
                 } else {
                     Timber.d("El body está empty")
                 }
             }
-
             false -> {
                 Timber.d("no tenemos respuesta de la api ${response.code()}")
             }
@@ -37,7 +39,7 @@ class Repository {
             true -> {
                 if(response.body() != null) {
                     Timber.d("epa! tenemos detalle ${response.body()}")
-                    carDetail.value = response.body()
+                    carDao.insert(response.body()!!)
                 } else {
                     Timber.d("El body está empty para el detalle")
                 }
